@@ -26,7 +26,7 @@ function addImg () {
 				const img = "<div class='fichas-back'>"+"<img src='img/img1.jpeg'/>" + "</div>"
 				$(this).append(img);
 				const card = $('.fichas-back')[i];
-				arrCards.push(card+i);
+				arrCards.push(card);
 			})
 			console.log(arrCards);
 
@@ -35,7 +35,7 @@ function addImg () {
 				const img = "<div class='fichas-back'>"+"<img src='img/img2.jpeg'/>" + "</div>"	
 				$(this).append(img);
 				const card = $('.fichas-back')[i];
-				arrCards.push(card+i);
+				arrCards.push(card);
 			})
 			// console.log(arrCards[i],i)
 			
@@ -44,7 +44,7 @@ function addImg () {
 				const img = "<div class='fichas-back'>"+"<img src='img/img3.jpeg'/>" + "</div>"
 				$(this).append(img);
 				const card = $('.fichas-back')[i];
-				arrCards.push(card+i);
+				arrCards.push(card);
 			})
 		} 
 			}		
@@ -57,6 +57,20 @@ function addImg () {
 
 }
 
+function shuffle (a,b) {
+	// length1 = arrCards.length
+	// console.log(length1);
+
+	for(var i = 0; i < arrCards.length; i++){
+		console.log(arrCards[i],'a')
+		console.log(arr[i],'b')
+		var j = arr.indexOf(i);
+		// console.log(j);
+		arr[i] = arrCards[j];
+		// console.log(arr[i]);
+	}
+
+}
 
 
 
