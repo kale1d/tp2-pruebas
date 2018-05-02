@@ -1,0 +1,45 @@
+@bgcolor: #c8cbfe;
+@ancho: 1280px;
+@alto: 800px;
+@ficolor: #fdbbcc;
+@fcancho: 1000px;
+@fmargin: 5px;
+@fimg: url("../img/front-img.jpg");
+ .main-container {
+ 	background-color: @bgcolor;
+ 	width: @ancho;
+ 	height: @alto;
+ }
+
+ .fichas-container-front{
+	width: @fcancho;
+	height: @alto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+ }
+
+ .fichas-front {
+ 	margin-right: @fmargin;
+ 	margin-bottom: @fmargin/2;
+	width: (@fcancho/4)-@fmargin;
+	height: (@fcancho/4)-@fmargin;
+	background: @fimg;
+ }
+
+.fichas-container-back{
+	width: @fcancho+200px;
+	height: @alto;
+	background-color: peru;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	flex-direction: row;
+ }
+
+.fichas-back {
+ 	margin-right: @fmargin;
+ 	margin-bottom: @fmargin/2;
+	width: (@fcancho/4)-@fmargin;
+	height: (@fcancho/4)-@fmargin;
+}
