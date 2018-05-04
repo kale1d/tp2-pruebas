@@ -1,34 +1,30 @@
 .main-container {
   background-color: #c8cbfe;
   width: 1280px;
-  height: 800px;
+  height: 750px;
 }
-.fichas-container-front {
+.fichas-container {
   width: 1000px;
-  height: 800px;
+  height: 750px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
-.fichas-front {
+.fichas {
   margin-right: 5px;
   margin-bottom: 2.5px;
   width: 245px;
   height: 245px;
-  background: url("../img/front-img.jpg");
-}
-.fichas-container-back {
-  width: 1200px;
-  height: 800px;
-  background-color: peru;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  flex-direction: row;
 }
 .fichas-back {
   margin-right: 5px;
   margin-bottom: 2.5px;
   width: 245px;
   height: 245px;
+}
+.notshow {
+  display: none;
+}
+.img-front {
+  background: url("../img/front-img.jpg");
 }
