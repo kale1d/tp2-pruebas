@@ -28,3 +28,9 @@
 .img-front {
   background: url("../img/front-img.jpg");
 }
+.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}

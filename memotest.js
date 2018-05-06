@@ -1,11 +1,15 @@
 let arrCards = [];
 let arr = [0,1,2,3,4,5,6,7,8,9,10,11];
 let newArr = [];
+const img1 = "<img class='fichas-back'src='img/img1.jpeg'/>";
+const img2 = "<img class='fichas-back' src='img/img2.jpeg'/>";
+const img3 = "<img class='fichas-back' src='img/img3.jpeg'/>";
+const imgfront = "<img class='front' src='img/front-img.jpg'/>";
 
-$('.fichas').each(function(){
-	const imgfront = "<img src='img/front-img.jpg'/>";
-	let index = $('.fichas').index(this);
-	$('.fichas').eq(index).append(imgfront);
+
+$(window).on('load',function(){
+	$('.fichas-back').addClass('notshow');
+
 })
 
 
@@ -32,76 +36,40 @@ function addImg (a) {
 		
 			$('.fichas').each(function(i) {
 				if (i<=3) {
-					const img = "<img class='fichas-back' src='img/img1.jpeg'/>";
-					console.log($(this))
-					$(this).append(img);
-					console.log($(this))
 					
-					const card = $('.fichas-back')[i];
+					$('.fichas').eq(i).append(img1,imgfront);
+					const card = $('.fichas')[i];
 					arrCards.push(card);
-				}else if (i>=4 && i<8) {
-					const img2 = "<img class='fichas-back' src='img/img2.jpeg'/>";	
-					$(this).append(img2);
-					const card = $('.fichas-back')[i];
+				}else if (i>=4 && i<8) {	
+					$(this).append(imgfront,img2);
+					const card = $('.fichas')[i];
 					arrCards.push(card);
 				}else {
-					const img3 = "<img class='fichas-back' src='img/img3.jpeg'/>";
-					$(this).append(img3);
-					const card = $('.fichas-back')[i];
+					$(this).append(img3,imgfront);
+					const card = $('.fichas')[i];
 					arrCards.push(card);
 				}
 
 			})
 			return arrCards;
-		// 	// console.log(arrCards);
-
-		// } else if (i>=4 && i<8) {
-		// 		$('.fichas').each(function(){
-		// 		const img = "<img class='fichas-back' src='img/img2.jpeg'/>";	
-		// 		$(this).append(img);
-		// 		const card = $('.fichas-back')[i];
-		// 		arrCards.push(card);
-		// 	})
-		// 	// console.log(arrCards[i],i)
-			
-		// } else {
-		// 	$('.fichas').each(function(){
-		// 		const img = "<img class='fichas-back' src='img/img3.jpeg'/>";
-		// 		$(this).append(img);
-		// 		const card = $('.fichas-back')[i];
-		// 		arrCards.push(card);
-		// 	})
-		// } 
-			// }		
-			// console.log(arrCards);
-			
-			// let cards = arrCards;
-			// cards = shuffle(cards,position);	
-			// shuffleImg(arrCards);	
-			// 	shuffle(arr,arrCards);
+	
 
 }
 arrCards=addImg(arrCards)
-// $('.fichas-back').addClass("notshow");
-// console.log(arrCards);
+
 
 function shuffle (a,b) {
-	// length1 = arrCards.length
-	// console.log(length1);
-	// console.log(arr);
+	
 	for(var i = 0; i < arr.length; i++){
-		// console.log(arrCards[i],'a')
-		// console.log(arr[i],'b')
+		
 
 		var j = arr.indexOf(i);
 		newArr.push(arrCards[j])
 		arrCards[j]=newArr[i];
-		// console.log(newArr)
-		// console.log(j);
-		// console.log(arr[i]);
+		;
 	}
 	return newArr;
-	// console.log(newArr,'a')	 
+	 
 }
 newArr=shuffle(arr,arrCards)
 // console.log(newArr);
@@ -127,38 +95,63 @@ function cargar (a){
 }
 
 newArr = cargar(newArr);
-// console.log(newArr)
+console.log(newArr)
+
+	let pair = [];
+	let counter = 0
+$(document).on('click','.fichas',function(){
+	counter = counter+1;
+	console.log(counter)
+	let index = $('.fichas').index(this);
+	const front = $('.front').eq(index);
+	const back = $('.fichas-back').eq(index)
+
+	if (pair.length<2) {
+		pair.push(back.attr('src'));
+		console.log(pair);
+		front.addClass('notshow');
+		back.removeClass('notshow');
+
+		if (pair[0]==pair[1]) {
+		  console.log('yaaaay')
+		  pair.length=0
+		}
+		else if (pair.length>1){
+			front.removeClass('notshow');
+			back.addClass('notshow');
+			pair.length=0
+
+		}
+		// else{
+				
+		// 		console.log('que carajo estoy haciendo')
+		// 	}
+		// 	else{
+		// 		console.log('neeiii')
+		// }
+	}
 
 
-$(document).on('click','.fichas-front',function(){
-	console.log('muerte');
-	// console.log(newArr)
-	// console.log(newArr[1]);
-	var index = $('.fichas-front').index(this);
 
-	
-	// console.log(index)
-		// console.log(newArr)
-		// console.log($('.fichas-back').eq(index))
-		$('.fichas-front').eq(index).replaceWith($('.fichas-back').removeClass("notshow"))
-		// $('.fichas-front').eq(index).addClass("notshow");
-		// $('.fichas-back').eq(index).removeClass('notshow');
-	
 
-		// $(this).find('.fichas-front').replaceWith('hola');
-		// $('.fichas-front', this).removeClass("img-front")
-		// $('.fichas-container-back').removeClass("notshow");
+			
+			// igual = $('.fichas-back').eq(index).attr('src');
+			// if (igual=="img/img1.jpeg") {
+			
+
+			// } else {
+			// 		if (igual == "img/img2.jpeg") {
+			// 			$('.front').eq(index).addClass('notshow');
+			// 			$('.fichas-back').eq(index).removeClass('notshow');
+			// 		} else {
+			// 			// statement
+			// 		}
+			// 	// statement
+			// }
+  
 
 
 })
 
 
-
-// for(var i = 0; i < index; i++){
-	// 	console.log ('')
-	// 	let arrFront =[]
-	// 	arrFront = $('.fichas-front').eq(index)
-	// 	return arrFront;
-	// }
-	// console.log(arrFront);
 
